@@ -205,7 +205,7 @@ YourProjectName/
 
 1. **Clone the repo**
 ```bash
-git clone https://github.com/username/personal-psych-engine.git
+git clone https://github.com/AkshitSingh7/Personal-Emotional-Intelligence-Engine-Real-World-Mood-Modeling-Causal-Analytics-LLM-Reasoning.git
 
 ```
 
