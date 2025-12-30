@@ -108,95 +108,31 @@ The frontend is built with **Gradio** / **Streamlit** to visualize the "Brain" a
 ## 🛠 Repository Structure
 
 ```text
-YourProjectName/
+Personal-Emotional-Intelligence-Engine-Real-World-Mood-Modeling-Causal-Analytics-LLM-Reasoning/  (or your chosen name)
 │
-├── README.md
-├── LICENSE
-├── .gitignore
+├── app/                       
+│   └── dashboard.py           
 │
-├── data/
-│   ├── raw/
-│   │   ├── how_we_feel_export.csv
-│   │   ├── spotify_streaming_history.json
-│   │   ├── paytm_transactions.xlsx
-│   │   ├── google_maps_timeline.json
-│   │   ├── browser_history.json
-│   │   ├── aqi_api_responses/
-│   │   └── news_api_responses/
-│   │
-│   ├── processed/
-│   │   ├── master_dataset_with_location_ordered.csv
-│   │   ├── mood_quadrant_dataset.csv
-│   │   ├── teacher_dataset_full.json
-│   │   ├── teacher_dataset_clean.json
-│   │   └── analytics_brain.json   (final phase-2 brain)
-│   │
-│   └── metadata/
-│       ├── column_definitions.md
-│       ├── mood_quadrant_mapping.json
-│       └── data_collection_notes.md
+├── notebooks/                 
+│   ├── 01_data_processing.ipynb
+│   ├── 02_teacher_distillation.ipynb
+│   ├── 03_analytics_brain.ipynb
+│   └── 04_testing_the_model.ipynb
 │
-├── notebooks/
-│   ├── 01_data_build.ipynb
-│   ├── 02_quadrant_classification.ipynb
-│   ├── 03_teacher_generation.ipynb
-│   ├── 04_clean_teacher_dataset.ipynb
-│   ├── 05_student_training.ipynb
-│   ├── 06_analytics_brain_build.ipynb
-│   └── 07_dashboard_llm_fusion.ipynb
-│
-├── models/
-│   ├── teacher_qwen32b/      (optional pointers or README; model too large)
-│   ├── student_qwen7b/
-│   └── checkpoints/
-│
-├── src/
+├── src/                       
 │   ├── __init__.py
-│   │
-│   ├── data/
-│   │   ├── load_data.py
-│   │   ├── preprocess.py
-│   │   ├── feature_engineering.py
-│   │   └── quadrant_classifier.py
-│   │
-│   ├── teacher/
-│   │   ├── teacher_generate.py
-│   │   └── teacher_cleaning.py
-│   │
-│   ├── student/
-│   │   ├── train_student.py
-│   │   └── evaluate_student.py
-│   │
-│   ├── analytics/
-│   │   ├── baseline_stats.py
-│   │   ├── causal_brain.py
-│   │   ├── routine_analysis.py
-│   │   ├── context_effects.py
-│   │   ├── stress_signature.py
-│   │   ├── resilience_engine.py
-│   │   └── simulation_engine.py
-│   │
-│   ├── llm/
-│   │   ├── fusion_engine.py      (LLM + brain grounding)
-│   │   ├── prompting.py
-│   │   └── safeguards.py
-│   │
-│   └── dashboard/
-│       ├── app.ipynb OR app.py   (Streamlit / Gradio)
-│       └── assets/
+│   ├── etl.py               
+│   ├── analytics.py          
+│   ├── llm_engine.py          
+│   └── config.py              
 │
-├── reports/
-│   ├── figures/
-│   │   ├── mood_distribution.png
-│   │   ├── quadrant_plot.png
-│   │   ├── causal_effects.png
-│   │   ├── resilience_curve.png
-│   │   └── simulation_results.png
-│   │
-│   ├── analytics_summary.md
-│   ├── methodology.md
-│   └── findings.md
+├── data/                     
+│   ├── raw/
+│   ├── processed/
+│   └── mock_samples/         
 │
+├── .gitignore
+├── README.md
 └── requirements.txt
 
 ```
