@@ -1,6 +1,17 @@
 # 🧠 Personal-Emotional-Intelligence-Engine-Real-World-Mood-Modeling-Causal-Analytics-LLM-Reasoning
+
+![Python](https://img.shields.io/badge/Python-3.10+-blue.svg) ![PyTorch](https://img.shields.io/badge/PyTorch-2.0-red.svg) ![Qwen](https://img.shields.io/badge/LLM-Qwen2.5-yellow.svg) ![License](https://img.shields.io/badge/License-MIT-green.svg)
+
 **A Neuro-Symbolic AI framework that fuses longitudinal life-logging (500+ days) with Knowledge Distillation to create a grounded, scientifically accurate personal psychology assistant.**
 
+> **Status:** ✅ Complete | **Dataset:** 1325 Days (Multi-modal) | **Architecture:** Teacher-Student Distillation
+
+---
+
+### 📸 Dashboard Preview
+![Dashboard Preview](assets/dashboard.png)
+
+---
 
 ## 🏗 System Architecture
 
@@ -24,7 +35,7 @@ graph TD
 
 The foundation is a unified time-series dataset aggregated from distinct APIs and export streams. All streams are synchronized to a daily resolution.
 
-### 📊 Full Data Schema 
+### 📊 Full Data Schema
 
 | Data Source | Type | Extraction Method | Columns (Features) | Count |
 | --- | --- | --- | --- | --- |
@@ -50,10 +61,10 @@ The foundation is a unified time-series dataset aggregated from distinct APIs an
 
 ## 🧠 2. The "Analytics Brain" (Statistical Engine)
 
-Before the LLM speaks, the **Analytics Engine** (`analytics_brain.py`) computes the ground truth. This is a deterministic module using Pandas/Scipy.
+Before the LLM speaks, the **Analytics Engine** (`src/analytics.py`) computes the ground truth. This is a deterministic module using Pandas/Scipy.
 
 * **Bayesian Priors:** Baseline probability of specific moods given the day of the week.
-* **Granger Causality:** Lags calculated to see if  behavior predicts  mood.
+* **Granger Causality:** Lags calculated to see if behavior predicts mood.
 * **Correlation Matrix:** Pearson coefficients for `Sleep` vs `Anxiety`, `Spending` vs `Mood`.
 * **Simulation:** A functional engine to calculate  Mood based on user input variables.
 
@@ -117,38 +128,42 @@ The frontend is built with **Gradio** / **Streamlit** to visualize the "Brain" a
 ```text
 Personal-Emotional-Intelligence-Engine/
 │
-├── app/                      
+├── app/                       
 │   └── dashboard.py           
 │
-├── data/                     
+├── assets/                    
+│   └── dashboard.png          # Screenshot for README
+│
+├── data/                      
 │   ├── mock_samples/          
 │   │   └── master_dataset_mock.csv
-│   ├── raw/                  
-│   └── processed/            
+│   ├── raw/                   
+│   └── processed/             
 │
-├── notebooks/               
+├── notebooks/                 
 │   ├── 01_Data_Processing.ipynb          
-│   ├── 02_Exploratory_Analysis.ipynb    
+│   ├── 02_Exploratory_Analysis.ipynb     
 │   └── 03_Teacher_Student_Training.ipynb
 │
-├── src/                       
-│   ├── __init__.py            
-│   ├── analytics.py           
-│   ├── config.py             
-│   ├── etl.py                
-│   ├── generate_mock_data.py  
-│   └── llm_engine.py          
+├── src/                        
+│   ├── __init__.py             
+│   ├── analytics.py            
+│   ├── config.py               
+│   ├── etl.py                  
+│   ├── generate_mock_data.py   
+│   └── llm_engine.py           
 │
-├── .gitignore                
-├── README.md                 
-└── requirements.txt           
+├── .gitignore                  
+├── README.md                   
+└── requirements.txt            
+
 ```
 
 ## 🚀 Getting Started
 
 1. **Clone the repo**
 ```bash
-git clone https://github.com/AkshitSingh7/Personal-Emotional-Intelligence-Engine-Real-World-Mood-Modeling-Causal-Analytics-LLM-Reasoning.git
+git clone [https://github.com/AkshitSingh7/Personal-Emotional-Intelligence-Engine-Real-World-Mood-Modeling-Causal-Analytics-LLM-Reasoning.git](https://github.com/AkshitSingh7/Personal-Emotional-Intelligence-Engine-Real-World-Mood-Modeling-Causal-Analytics-LLM-Reasoning.git)
 
 ```
 
@@ -160,7 +175,14 @@ pip install -r requirements.txt
 ```
 
 
-3. **Run the Dashboard**
+3. **Generate Mock Data**
+```bash
+python src/generate_mock_data.py
+
+```
+
+
+4. **Run the Dashboard**
 ```bash
 streamlit run app/dashboard.py
 
@@ -173,3 +195,7 @@ streamlit run app/dashboard.py
 ## 📜 License
 
 MIT License. Data samples provided are anonymized.
+
+```
+
+```
