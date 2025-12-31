@@ -5,7 +5,7 @@ __pycache__/
 .env
 .ipynb_checkpoints/
 
-# Data (Protect your privacy!)
+# Data 
 data/raw/*
 data/processed/*
 !data/raw/.gitkeep
