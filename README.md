@@ -22,17 +22,24 @@ graph TD
 
 ## 📂 1. Data Provenance & Feature Engineering
 
-The foundation is a unified time-series dataset () aggregated from 7 distinct APIs and export streams. All streams are synchronized to a daily resolution.
+The foundation is a unified time-series dataset aggregated from distinct APIs and export streams. All streams are synchronized to a daily resolution.
 
-| Data Source | Type | Extraction Method | Key Features Extracted |
-| --- | --- | --- | --- |
-| **How We Feel** | Behavioral | App Export (CSV) | `mood`, `sleep`, `steps`, `location`, `activities` |
-| **Spotify** | Auditory | JSON Export | `music_minutes`, `skip_rate` (restlessness), `top_artist` |
-| **Firefox** | Cognitive | History Parsing | `productivity_score`, `distraction_ratio`, `cog_load` |
-| **Paytm/UPI** | Financial | Excel Export | `daily_spend`, `impulse_txn_count`, `entertainment_cost` |
-| **Google Maps** | Geospatial | Timeline JSON | `city_location`, `travel_status` |
-| **OpenAQ** | Environmental | API Fetch | `pm2_5` (Air Quality Index at location) |
-| **GNews** | Social | NLP Sentiment | `national_news_sentiment` (Macro-emotional climate) |
+### 📊 Full Data Schema 
+
+| Data Source | Type | Extraction Method | Columns (Features) | Count |
+| --- | --- | --- | --- | --- |
+| **Time & Metadata** | Indexing | Derived | `timestamp`, `date_only`, `hour`, `day_name` | **4** |
+| **How We Feel** | Behavioral | App Export (CSV) | `mood_label`, `sleep_hours`, `step_count`, `people`, `location_label`, `activity`, `weather_desc`, `temp_c` | **8** |
+| **Spotify** | Auditory | JSON Export | `music_minutes`, `music_songs_count`, `music_skip_count`, `music_skip_rate`, `top_artist` | **5** |
+| **Firefox** | Cognitive | History Parsing | `total_visits`, `productive_visits`, `distraction_visits`, `productivity_score`, `distraction_ratio` | **5** |
+| **Paytm/UPI** | Financial | Excel Export | `total_spend`, `food_spend`, `entertainment_spend`, `txn_count` | **4** |
+| **Google Maps** | Geospatial | Timeline JSON | `location_city` | **1** |
+| **OpenAQ** | Environmental | API Fetch | `pm2_5` | **1** |
+| **GNews** | Social | NLP Sentiment | `india_news_sentiment` | **1** |
+| **Internal Engine** | Psychological | Vector Mapping | `mood_quadrant` | **1** |
+| **TOTAL** |  |  |  | **30** |
+
+---
 
 **Preprocessing:**
 
@@ -108,33 +115,33 @@ The frontend is built with **Gradio** / **Streamlit** to visualize the "Brain" a
 ## 🛠 Repository Structure
 
 ```text
-Personal-Emotional-Intelligence-Engine-Real-World-Mood-Modeling-Causal-Analytics-LLM-Reasoning/  (or your chosen name)
+Personal-Emotional-Intelligence-Engine/
 │
-├── app/                       
+├── app/                      
 │   └── dashboard.py           
 │
-├── notebooks/                 
-│   ├── 01_data_processing.ipynb
-│   ├── 02_teacher_distillation.ipynb
-│   ├── 03_analytics_brain.ipynb
-│   └── 04_testing_the_model.ipynb
+├── data/                     
+│   ├── mock_samples/          
+│   │   └── master_dataset_mock.csv
+│   ├── raw/                  
+│   └── processed/            
+│
+├── notebooks/               
+│   ├── 01_Data_Processing.ipynb          
+│   ├── 02_Exploratory_Analysis.ipynb    
+│   └── 03_Teacher_Student_Training.ipynb
 │
 ├── src/                       
-│   ├── __init__.py
-│   ├── etl.py               
-│   ├── analytics.py          
-│   ├── llm_engine.py          
-│   └── config.py              
+│   ├── __init__.py            
+│   ├── analytics.py           
+│   ├── config.py             
+│   ├── etl.py                
+│   ├── generate_mock_data.py  
+│   └── llm_engine.py          
 │
-├── data/                     
-│   ├── raw/
-│   ├── processed/
-│   └── mock_samples/         
-│
-├── .gitignore
-├── README.md
-└── requirements.txt
-
+├── .gitignore                
+├── README.md                 
+└── requirements.txt           
 ```
 
 ## 🚀 Getting Started
