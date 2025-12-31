@@ -1,0 +1,15 @@
+# .gitignore
+# Python
+__pycache__/
+*.pyc
+.env
+.ipynb_checkpoints/
+
+# Data (Protect your privacy!)
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# Models
+models/*
