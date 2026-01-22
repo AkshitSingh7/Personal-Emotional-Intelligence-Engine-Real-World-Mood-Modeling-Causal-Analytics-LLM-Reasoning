@@ -132,7 +132,7 @@ Personal-Emotional-Intelligence-Engine/
 │   └── dashboard.py           
 │
 ├── assets/                    
-│   └── dashboard.png          # Screenshot for README
+│   └── dashboard.png          
 │
 ├── data/                      
 │   ├── mock_samples/          
