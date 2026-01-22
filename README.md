@@ -195,7 +195,3 @@ streamlit run app/dashboard.py
 ## 📜 License
 
 MIT License. Data samples provided are anonymized.
-
-```
-
-```
